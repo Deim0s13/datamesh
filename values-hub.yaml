@@ -38,7 +38,7 @@ clusterGroup:
       name: lvms
       namespace: openshift-storage
       project: hub
-      pather: charts/lvms
+      path: charts/lvms
 
     vault:
       name: vault
