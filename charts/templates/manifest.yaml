@@ -6,8 +6,8 @@ metadata:
 spec:
   storage:
     deviceClasses:
-      -name: {{ .Values.lvms.volumeGroup }}
-      thinPoolConfig:
-         name: thin-pool-1
-         overprovsionRatio: 10
-         sizePercent: 90
+      - name: {{ .Values.lvms.volumeGroup }}
+        thinPoolConfig:
+          name: thin-pool-1
+          overprovisionRatio: 10
+          sizePercent: 90
