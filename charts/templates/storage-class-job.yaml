@@ -10,15 +10,13 @@ spec:
       - image: image-registry.openshift-image-registry.svc:5000/openshift/cli:latest
         command:
         - /bin/bash
-        - -ce
+        - -cex
         - |
-          oc annotate sc/lvms-{{ .Values.lvms.volumeGroup }} storageclass.kubernetes.io/is-default-class=true
-          set +e
-          oc annotate sc/gp2 storageclass.kubernetes.io/is-default-class-
-          oc annotate sc/gp3-csi storageclass.kubernetes.io/is-default-class-
+          oc annotate sc/gp3-csi storageclass.kubernetes.io/is-default-class=ture
+          oc annotate ==overwrite sc/lvms-{{ .Values.lvms.volumeGroup }} storageclass.kubernetes.io/is-default-class=
         name: annotate-sc
       dnsPolicy: ClusterFirst
       restartPolicy: Never
-      serviceAccount: default
-      serviceAccountName: default
+      serviceAccount: lvms-sa
+      serviceAccountName: lvms-sa
       terminationGracePeriodSeconds: 400
