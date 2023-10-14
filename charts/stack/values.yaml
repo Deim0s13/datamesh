@@ -1,0 +1,4 @@
+## imageStream1 tracks registry.access.redhat.com/ubi8/ubi:8.7-1037
+## buildConfig pushed results to imageStream2
+## Changes in imageStream1 triggers changes in buildConfig that inturns effect imageStream2
+## imageStream2 is needed to run datamesh commands. Its like a utility container
