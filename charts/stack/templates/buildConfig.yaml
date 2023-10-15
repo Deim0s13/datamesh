@@ -1,0 +1,29 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: stack
+  namespace: datamesh
+  labels:
+    app: stack
+spec:
+  source:
+    type: Git
+    git:
+      uri: https://github.com/day0hero/data-mesh-pattern
+    contextDir: docs/stack
+  strategy:
+    type: Docker                      
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+  output:
+    to:
+      kind: ImageStreamTag
+      name: stack-ubi:latest
+  # This keeps on creating new builds
+  triggers:
+  - type: ImageChange
+    imageChange:
+      from:
+        kind: ImageStreamTag
+        name: ubi8-imagestream:ubi8:8.7-1037
+        namespace: datamesh

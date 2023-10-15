@@ -72,6 +72,12 @@ clusterGroup:
       - name: ocp_auth.enabled
         value: "true"
 
+    stack:
+      name: stack
+      namespace: datamesh
+      project: datamesh-stack
+      path: charts/all/stack
+
 #    config-demo:
 #      name: config-demo
 #      namespace: config-demo
